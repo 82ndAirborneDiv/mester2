@@ -20,9 +20,9 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         
         //dataSource = self
         
-        let vc = newViewController(index: 0)
+        let vc = viewControllerForCondition(condition: sharedConditionContent.conditionDisplayed)
         
-        setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+        setViewControllers([vc!], direction: .forward, animated: true, completion: nil)
         
         
         // Do any additional setup after loading the view.
@@ -46,14 +46,14 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         //print("starting parentSubConditionLabel value \(parentSubConditionLabel.text)")
         
         if conditionsContent.conditions[index].parentCondition != nil {
-            let parentCondition = conditionsContent.conditions[index].parentCondition
-            parentConditionLabel.title = parentCondition?.name
+            let parentCondition = conditionsContent.conditions[conditionsContent.conditions[index].parentCondition!]
+            parentConditionLabel.title = parentCondition.name
         } else {
             parentConditionLabel.title = "Condition"
         }
         
         parentSubConditionLabel.attributedText = getSubConditionWithNotesSymbols(condition: conditionsContent.conditions[index])
-        if !(conditionsContent.conditions[index].notes?.isEmpty)! {
+        if (conditionsContent.conditions[index].notes != nil ){
             parentSubConditionLabel.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             parentSubConditionLabel.addGestureRecognizer(tap)
@@ -69,23 +69,58 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         return nil
     }
     
-    func setCondition(index: Int) {
-        conditionsContent.currentIndex = index
-        let vc = newViewController(index: index)
-        setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+    func viewControllerForCondition(condition: Condition) -> RatingTableViewController? {
+        if condition.parentCondition != nil {
+            let parentCondition = sharedConditionContent.conditions[condition.parentCondition!]
+            parentConditionLabel.title = parentCondition.name
+        } else {
+            parentConditionLabel.title = "Condition"
+        }
+        
+        parentSubConditionLabel.attributedText = getSubConditionWithNotesSymbols(condition: condition)
+        if condition.notes != nil {
+            parentSubConditionLabel.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+            parentSubConditionLabel.addGestureRecognizer(tap)
+        } else {
+            parentSubConditionLabel.isUserInteractionEnabled = false
+        }
+        
+        //print("new parentSubConditionLabel value \(parentSubConditionLabel.text)")
+        if let ratingViewController = storyboard?.instantiateViewController(withIdentifier: "RatingTableViewController") as? RatingTableViewController {
+            ratingViewController.currentCondition = condition
+            return ratingViewController
+        }
+        return nil
+
     }
     
     func nextCondition() {
-        conditionsContent.changeCurrentIndex(changeBy: 1)
-        let vc = newViewController(index: conditionsContent.currentIndex)
-        setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+        let nextCondition = conditionsContent.nextDisplayCondition()
+        let vc = viewControllerForCondition(condition: nextCondition)
+        setViewControllers([vc!], direction: .forward, animated: true, completion: nil)
 
     }
     
     func previousCondition() {
-        conditionsContent.changeCurrentIndex(changeBy: -1)
-        let vc = newViewController(index: conditionsContent.currentIndex)
-        setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+        let prevCondition = conditionsContent.prevDisplayCondition()
+        let vc = viewControllerForCondition(condition: prevCondition)
+        setViewControllers([vc!], direction: .reverse, animated: true, completion: nil)
+    }
+    
+    func reloadCondition() {
+        let currentCondition = conditionsContent.conditionDisplayed
+        let vc = viewControllerForCondition(condition: currentCondition)
+        
+        var direction: UIPageViewControllerNavigationDirection
+        
+        if conditionsContent.currentRatingType == "Initiation" {
+            direction = .reverse
+        } else {
+            direction = .forward
+        }
+        
+        setViewControllers([vc!], direction: direction, animated: true, completion: nil)
     }
     
     func handleTap(_ sender: UITapGestureRecognizer) {
@@ -103,8 +138,10 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
     func getSubConditionWithNotesSymbols(condition: Condition) -> NSMutableAttributedString {
         let fontSuper:UIFont? = UIFont(name: "Helvetica", size:10)
         var notesSymbols = ""
-        for note in condition.notes! {
-            notesSymbols += note.name
+        if condition.notes != nil {
+            for note in condition.notes! {
+                notesSymbols += note.name
+            }
         }
         
         let returnString = NSMutableAttributedString(string: condition.name)
@@ -128,7 +165,7 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
                 fatalError("SubconditionNotesSegue error")
             }
             
-            noteDetailVC.notes = conditionsContent.conditions[conditionsContent.currentIndex].notes
+            noteDetailVC.notes = conditionsContent.conditionDisplayed.notes
         }
     }
     
@@ -144,19 +181,19 @@ extension ConditionDetailsPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         //print("Begin viewControllerBeforeViewController")
         //print("initial index \(conditionsContent.currentIndex)")
-        conditionsContent.changeCurrentIndex(changeBy: -1)
+    
         //print("index after change\(conditionsContent.currentIndex)")
         //print("End viewControllerBeforeViewController")
-        return self.viewControllerAtIndex(index: conditionsContent.currentIndex)
+        return self.viewControllerForCondition(condition: sharedConditionContent.prevDisplayCondition())
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         //print("Begin viewControllerAfterViewController")
         //print("initial index \(conditionsContent.currentIndex)")
-        conditionsContent.changeCurrentIndex(changeBy: 1)
+        //conditionsContent.changeCurrentIndex(changeBy: 1)
         //print("index after change\(conditionsContent.currentIndex)")
         //print("End viewControllerAfterViewController")
-        return self.viewControllerAtIndex(index: conditionsContent.currentIndex)
+        return self.viewControllerForCondition(condition: sharedConditionContent.nextDisplayCondition())
         
     }
 }

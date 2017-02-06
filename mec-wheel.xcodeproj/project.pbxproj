@@ -7,24 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96488AEA1E36B00D00F07EC1 /* ConditionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96488AE91E36B00D00F07EC1 /* ConditionPickerViewController.swift */; };
 		965AA19B1E29371A00425774 /* ConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AA19A1E29371A00425774 /* ConditionViewController.swift */; };
 		965AA1BF1E29897700425774 /* ConditionsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965AA1BE1E29897700425774 /* ConditionsContent.swift */; };
-		9670C2571E1EE73B00C3C75F /* ConditionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670C2561E1EE73B00C3C75F /* ConditionsTableViewController.swift */; };
 		96BAE20B1E209DC000A5854F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAE20A1E209DC000A5854F /* PageViewController.swift */; };
-		96BAE20D1E209EF300A5854F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BAE20C1E209EF300A5854F /* RatingViewController.swift */; };
 		96C319C61E315F28001FBE1D /* RatingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C319C51E315F28001FBE1D /* RatingTableViewController.swift */; };
 		96ED857F1E2FE32E0074A5CD /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96ED857E1E2FE32E0074A5CD /* Rating.swift */; };
 		96FB954D1E15B53E0090DCA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB954C1E15B53E0090DCA0 /* AppDelegate.swift */; };
-		96FB954F1E15B53E0090DCA0 /* ConditionDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB954E1E15B53E0090DCA0 /* ConditionDetailTableViewController.swift */; };
 		96FB95521E15B53E0090DCA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FB95501E15B53E0090DCA0 /* Main.storyboard */; };
 		96FB95541E15B53E0090DCA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FB95531E15B53E0090DCA0 /* Assets.xcassets */; };
 		96FB95571E15B53E0090DCA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96FB95551E15B53E0090DCA0 /* LaunchScreen.storyboard */; };
 		96FB95621E15B53E0090DCA0 /* mec_wheelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB95611E15B53E0090DCA0 /* mec_wheelTests.swift */; };
 		96FB956D1E15B9F30090DCA0 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB956C1E15B9F30090DCA0 /* Condition.swift */; };
-		96FB956F1E15BB280090DCA0 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB956E1E15BB280090DCA0 /* Method.swift */; };
 		96FB95711E15BC1C0090DCA0 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB95701E15BC1C0090DCA0 /* Note.swift */; };
-		96FB95731E1D6DBC0090DCA0 /* MECSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FB95721E1D6DBB0090DCA0 /* MECSections.swift */; };
 		96FE1ECF1E3A576500BD0B44 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE1ECE1E3A576500BD0B44 /* SearchResultsTableViewController.swift */; };
 		96FE9A2F1E313042009FCD16 /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE9A2E1E313042009FCD16 /* NoteDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,17 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		96488AE91E36B00D00F07EC1 /* ConditionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionPickerViewController.swift; sourceTree = "<group>"; };
 		965AA19A1E29371A00425774 /* ConditionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionViewController.swift; sourceTree = "<group>"; };
 		965AA1BE1E29897700425774 /* ConditionsContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionsContent.swift; sourceTree = "<group>"; };
-		9670C2561E1EE73B00C3C75F /* ConditionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConditionsTableViewController.swift; path = ../ConditionsTableViewController.swift; sourceTree = "<group>"; };
 		96BAE20A1E209DC000A5854F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		96BAE20C1E209EF300A5854F /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		96C319C51E315F28001FBE1D /* RatingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RatingTableViewController.swift; path = ../RatingTableViewController.swift; sourceTree = "<group>"; };
 		96ED857E1E2FE32E0074A5CD /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		96FB95491E15B53E0090DCA0 /* mec-wheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mec-wheel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FB954C1E15B53E0090DCA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96FB954E1E15B53E0090DCA0 /* ConditionDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionDetailTableViewController.swift; sourceTree = "<group>"; };
 		96FB95511E15B53E0090DCA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96FB95531E15B53E0090DCA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96FB95561E15B53E0090DCA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,9 +49,7 @@
 		96FB95611E15B53E0090DCA0 /* mec_wheelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mec_wheelTests.swift; sourceTree = "<group>"; };
 		96FB95631E15B53E0090DCA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96FB956C1E15B9F30090DCA0 /* Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
-		96FB956E1E15BB280090DCA0 /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
 		96FB95701E15BC1C0090DCA0 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		96FB95721E1D6DBB0090DCA0 /* MECSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MECSections.swift; sourceTree = "<group>"; };
 		96FE1ECE1E3A576500BD0B44 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		96FE9A2E1E313042009FCD16 /* NoteDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,23 +94,17 @@
 			isa = PBXGroup;
 			children = (
 				96FB954C1E15B53E0090DCA0 /* AppDelegate.swift */,
-				96FB954E1E15B53E0090DCA0 /* ConditionDetailTableViewController.swift */,
-				9670C2561E1EE73B00C3C75F /* ConditionsTableViewController.swift */,
 				965AA1BE1E29897700425774 /* ConditionsContent.swift */,
 				96ED857E1E2FE32E0074A5CD /* Rating.swift */,
 				96FB956C1E15B9F30090DCA0 /* Condition.swift */,
-				96FB95721E1D6DBB0090DCA0 /* MECSections.swift */,
-				96FB956E1E15BB280090DCA0 /* Method.swift */,
 				96FB95701E15BC1C0090DCA0 /* Note.swift */,
 				96FB95501E15B53E0090DCA0 /* Main.storyboard */,
-				96488AE91E36B00D00F07EC1 /* ConditionPickerViewController.swift */,
 				96FE9A2E1E313042009FCD16 /* NoteDetailViewController.swift */,
 				965AA19A1E29371A00425774 /* ConditionViewController.swift */,
 				96FB95531E15B53E0090DCA0 /* Assets.xcassets */,
 				96FB95551E15B53E0090DCA0 /* LaunchScreen.storyboard */,
 				96FB95581E15B53E0090DCA0 /* Info.plist */,
 				96BAE20A1E209DC000A5854F /* PageViewController.swift */,
-				96BAE20C1E209EF300A5854F /* RatingViewController.swift */,
 				96C319C51E315F28001FBE1D /* RatingTableViewController.swift */,
 				96FE1ECE1E3A576500BD0B44 /* SearchResultsTableViewController.swift */,
 			);
@@ -247,17 +229,11 @@
 				96ED857F1E2FE32E0074A5CD /* Rating.swift in Sources */,
 				96FE9A2F1E313042009FCD16 /* NoteDetailViewController.swift in Sources */,
 				96FB95711E15BC1C0090DCA0 /* Note.swift in Sources */,
-				96FB956F1E15BB280090DCA0 /* Method.swift in Sources */,
-				96FB954F1E15B53E0090DCA0 /* ConditionDetailTableViewController.swift in Sources */,
-				96488AEA1E36B00D00F07EC1 /* ConditionPickerViewController.swift in Sources */,
-				96FB95731E1D6DBC0090DCA0 /* MECSections.swift in Sources */,
 				965AA1BF1E29897700425774 /* ConditionsContent.swift in Sources */,
 				965AA19B1E29371A00425774 /* ConditionViewController.swift in Sources */,
 				96C319C61E315F28001FBE1D /* RatingTableViewController.swift in Sources */,
 				96FB954D1E15B53E0090DCA0 /* AppDelegate.swift in Sources */,
 				96FB956D1E15B9F30090DCA0 /* Condition.swift in Sources */,
-				96BAE20D1E209EF300A5854F /* RatingViewController.swift in Sources */,
-				9670C2571E1EE73B00C3C75F /* ConditionsTableViewController.swift in Sources */,
 				96BAE20B1E209DC000A5854F /* PageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

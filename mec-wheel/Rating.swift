@@ -12,12 +12,14 @@ class Rating: NSObject {
     var rating: String
     var notes: [Note]?
     
+    init(rating: String){
+        self.rating = rating
+    }
+    
     init(rating: String, notes: [Note]?){
         self.rating = rating
         if notes != nil {
             self.notes = notes
-        } else {
-            self.notes = []
         }
     }
 }

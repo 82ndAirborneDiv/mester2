@@ -11,8 +11,6 @@ import UIKit
 class SearchResultsTableViewController: UITableViewController, UISearchBarDelegate {
     var resultSearchController:UISearchController? = nil
     
-    var tabledata = ["lucques","chickendijon","godaddy","amazon","chris","ambata","bankofamerica","abelcine","AUTO + TRANSPORTATION","BILLS + UTILITIES","FOOD + DINING","HEALTH","AutoCare", "Auto Payment" , "Gas+Fuel","Electric Bill", "Internet/Television","Fast Foodd", "Gorceries" , "Restaurants","Gym Membership", "Health Insurance","auto","note-bullet","knife","heart"]
-    
     var filteredTableData = [Condition]()
     var selectedCondition = Condition()
 
@@ -60,7 +58,7 @@ class SearchResultsTableViewController: UITableViewController, UISearchBarDelega
                 return 1
             }
         } else {
-            count = sharedConditionContent.parentConditionsProp.count
+            count = sharedConditionContent.conditions.count
         }
         
         return count
@@ -80,7 +78,7 @@ class SearchResultsTableViewController: UITableViewController, UISearchBarDelega
                 cellText = filteredTableData[indexPath.row].name
             }
         } else {
-            cellText = sharedConditionContent.parentConditionsProp[indexPath.row].name
+            cellText = sharedConditionContent.conditions[indexPath.row].name
         }
         cell?.textLabel?.text = cellText
         
@@ -135,9 +133,11 @@ class SearchResultsTableViewController: UITableViewController, UISearchBarDelega
             return
         }
         if (resultSearchController?.isActive)! {
+            selectedCondition = sharedConditionContent.getFirstChildOrDisplayCondition(condition: filteredTableData[(tableView.indexPath(for: cell)?.row)!])
             navigationController?.popViewController(animated: true)
+        } else {
+            selectedCondition = sharedConditionContent.getCondition(for: (tableView.indexPath(for: cell)?.row)!)
         }
-        selectedCondition = sharedConditionContent.parentConditionsProp[(tableView.indexPath(for: cell)?.row)!]
     }
  
     
@@ -165,7 +165,7 @@ extension SearchResultsTableViewController: UISearchResultsUpdating {
         filteredTableData.removeAll()
         let searchText = searchController.searchBar.text
         
-        for item in sharedConditionContent.parentConditionsProp {
+        for item in sharedConditionContent.conditions {
             let lowercasedItem = item.name.lowercased()
             let lowercasedSearchText = searchText?.lowercased()
             if lowercasedItem.hasPrefix(lowercasedSearchText!) {

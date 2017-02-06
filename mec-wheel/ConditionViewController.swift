@@ -32,6 +32,20 @@ class ConditionViewController: UIViewController {
         }
     }
     
+    @IBAction func initiationContinuationSwitch(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+            case 0:
+                print("Rating type is: \(sender.titleForSegment(at: 0))")
+                sharedConditionContent.currentRatingType = sender.titleForSegment(at: 0)!
+                conditionDetailVC?.reloadCondition()
+            case 1:
+                print("Rating type is: \(sender.titleForSegment(at: 1))")
+                sharedConditionContent.currentRatingType = sender.titleForSegment(at: 1)!
+                conditionDetailVC?.reloadCondition()
+            default:
+                break
+        }
+    }
     @IBAction func searchConditions(_ sender: Any) {
         performSegue(withIdentifier: "SearchSegue", sender: Any?.self)
     }
@@ -61,26 +75,11 @@ class ConditionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*searchBar.delegate = self
-        searchController = UISearchController(searchResultsController: searchResultsController)
-        
-        searchResultsController = UITableViewController(style: .plain)
-        searchResultsController.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UserFoundCell")
-        searchResultsController.tableView.dataSource = self
-        searchResultsController.tableView.delegate = self
-
-        
-        searchController = UISearchController(searchResultsController: searchResultsController)
-        searchController.searchResultsUpdater = self
-        self.definesPresentationContext = true
-        
-        */
-        
         methodsContainerView.layer.shadowOpacity = 0.3
-        methodsContainerView.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        methodsContainerView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
         methodsContainerView.layer.shadowRadius = 1.0
         methodsContainerView.layer.shadowColor = UIColor.black.cgColor
-    
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,7 +96,9 @@ class ConditionViewController: UIViewController {
     @IBAction func unwindToConditionView(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SearchResultsTableViewController {
             let condition = sourceViewController.selectedCondition
-            conditionDetailVC?.setCondition(index: sharedConditionContent.parentConditionsProp.index(of: condition)!)
+            let vc = conditionDetailVC?.viewControllerForCondition(condition: condition)
+            
+            conditionDetailVC?.setViewControllers([vc!], direction: .forward, animated: false, completion: nil)
         }
     }
 }

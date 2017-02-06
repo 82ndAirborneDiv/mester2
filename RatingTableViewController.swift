@@ -25,53 +25,54 @@ class RatingTableViewController: UITableViewController {
     
     var notesForSelectedCell: [Note] = []
     var currentCondition = Condition()
+    var chc, pop, dmpa, implants, lngiud, cuiud: Rating?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        chcRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.chcRating!)
-        popRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.popRating!)
-        dmpaRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.dmpaRating!)
-        implantsRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.implantsRating!)
-        lngiudRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.lngiudRating!)
-        cuiudRating.attributedText = getRatingWithNotesSymbols(rating: currentCondition.cuiudRating!)
 
-        if (currentCondition.chcRating?.notes?.isEmpty)! {
-            chcCell.isUserInteractionEnabled = false
+        switch sharedConditionContent.currentRatingType {
+            case "Initiation":
+                chc = currentCondition.chcInitiation!
+                pop = currentCondition.popInitiation!
+                dmpa = currentCondition.dmpaInitiation!
+                implants = currentCondition.implantsInitiation!
+                lngiud = currentCondition.lngiudInitiation!
+                cuiud = currentCondition.cuiudInitiation!
+            case "Continuation":
+                chc = currentCondition.chcContinuation!
+                pop = currentCondition.popContinuation!
+                dmpa = currentCondition.dmpaContinuation!
+                implants = currentCondition.implantsContinuation!
+                lngiud = currentCondition.lngiudContinuation!
+                cuiud = currentCondition.cuiudContinuation!
+        default:
+                break
         }
         
-        if (currentCondition.popRating?.notes?.isEmpty)! {
-            popCell.isUserInteractionEnabled = false
-        }
-        
-        
-        if (currentCondition.dmpaRating?.notes?.isEmpty)! {
-            dmpaCell.isUserInteractionEnabled = false
-        }
-        
-        if (currentCondition.implantsRating?.notes?.isEmpty)! {
-            implantsCell.isUserInteractionEnabled = false
-        }
-        
-        if (currentCondition.lngiudRating?.notes?.isEmpty)! {
-            lngiudCell.isUserInteractionEnabled = false
-        }
-        
-        if (currentCondition.cuiudRating?.notes?.isEmpty)! {
-            cuiudCell.isUserInteractionEnabled = false
-        }
+        chcRating.attributedText = getRatingWithNotesSymbols(rating: chc!)
+        popRating.attributedText = getRatingWithNotesSymbols(rating: pop!)
+        dmpaRating.attributedText = getRatingWithNotesSymbols(rating: dmpa!)
+        implantsRating.attributedText = getRatingWithNotesSymbols(rating: implants!)
+        lngiudRating.attributedText = getRatingWithNotesSymbols(rating: lngiud!)
+        cuiudRating.attributedText = getRatingWithNotesSymbols(rating: cuiud!)
 
-        
-        // Do any additional setup after loading the view.
+        chcCell.isUserInteractionEnabled = chc?.notes != nil
+        popCell.isUserInteractionEnabled = pop?.notes != nil
+        dmpaCell.isUserInteractionEnabled = dmpa?.notes != nil
+        implantsCell.isUserInteractionEnabled = implants?.notes != nil
+        lngiudCell.isUserInteractionEnabled = lngiud?.notes != nil
+        cuiudCell.isUserInteractionEnabled = cuiud?.notes != nil
+
     }
 
     func getRatingWithNotesSymbols(rating: Rating) -> NSMutableAttributedString {
         let fontSuper:UIFont? = UIFont(name: "Helvetica", size:10)
         var notesSymbols = ""
-        for note in rating.notes! {
-            notesSymbols += note.name
+        if rating.notes != nil {
+            for note in rating.notes! {
+                notesSymbols += note.name
+            }
         }
-        
         if rating.rating == "" {
             return NSMutableAttributedString(string: notesSymbols)
         }
@@ -94,17 +95,17 @@ class RatingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            notesForSelectedCell = (currentCondition.chcRating?.notes)!
+            notesForSelectedCell = (chc?.notes)!
         case 1:
-            notesForSelectedCell = (currentCondition.popRating?.notes)!
+            notesForSelectedCell = (pop?.notes)!
         case 2:
-            notesForSelectedCell = (currentCondition.dmpaRating?.notes)!
+            notesForSelectedCell = (dmpa?.notes)!
         case 3:
-            notesForSelectedCell = (currentCondition.implantsRating?.notes)!
+            notesForSelectedCell = (implants?.notes)!
         case 4:
-            notesForSelectedCell = (currentCondition.lngiudRating?.notes)!
+            notesForSelectedCell = (lngiud?.notes)!
         case 5:
-            notesForSelectedCell = (currentCondition.cuiudRating?.notes)!
+            notesForSelectedCell = (cuiud?.notes)!
         default:
             break
         }
