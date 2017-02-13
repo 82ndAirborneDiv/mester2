@@ -170,7 +170,7 @@
 				TargetAttributes = {
 					96FB95481E15B53E0090DCA0 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = DR935ZE6F2;
+						DevelopmentTeam = Z827RBGAJC;
 						ProvisioningStyle = Automatic;
 					};
 					96FB955C1E15B53E0090DCA0 = {
@@ -374,10 +374,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DR935ZE6F2;
+				DEVELOPMENT_TEAM = Z827RBGAJC;
 				INFOPLIST_FILE = "mec-wheel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gov.cdc.iiu.mester2;
+				PRODUCT_BUNDLE_IDENTIFIER = gov.cdc.iiu.mester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -388,10 +388,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = DR935ZE6F2;
+				DEVELOPMENT_TEAM = Z827RBGAJC;
 				INFOPLIST_FILE = "mec-wheel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gov.cdc.iiu.mester2;
+				PRODUCT_BUNDLE_IDENTIFIER = gov.cdc.iiu.mester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
