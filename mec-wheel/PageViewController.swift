@@ -112,7 +112,7 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         let currentCondition = conditionsContent.conditionDisplayed
         let vc = viewControllerForCondition(condition: currentCondition)
         
-        var direction: UIPageViewControllerNavigationDirection
+        var direction: UIPageViewController.NavigationDirection
         
         if conditionsContent.currentRatingType == "Initiation" {
             direction = .reverse
@@ -123,7 +123,7 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         setViewControllers([vc!], direction: direction, animated: true, completion: nil)
     }
     
-    func handleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
         //print("Subcondition title was tapped")
         performSegue(withIdentifier: "SubconditionNotesSegue", sender: Any?.self)
         
@@ -147,7 +147,7 @@ class ConditionDetailsPageViewController: UIPageViewController, UIPageViewContro
         let returnString = NSMutableAttributedString(string: condition.name)
         let symbolsString = NSMutableAttributedString(string: notesSymbols)
         
-        symbolsString.setAttributes([NSFontAttributeName:fontSuper!,NSBaselineOffsetAttributeName:8], range: NSRange(location: 0, length: symbolsString.length))
+        symbolsString.setAttributes([NSAttributedString.Key.font:fontSuper!,NSAttributedString.Key.baselineOffset:8], range: NSRange(location: 0, length: symbolsString.length))
         
         returnString.append(symbolsString)
 

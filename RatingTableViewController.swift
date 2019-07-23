@@ -80,7 +80,7 @@ class RatingTableViewController: UITableViewController {
         let returnString = NSMutableAttributedString(string: rating.rating)
         let symbolsString = NSMutableAttributedString(string: notesSymbols)
         
-        symbolsString.setAttributes([NSFontAttributeName:fontSuper!,NSBaselineOffsetAttributeName:8], range: NSRange(location: 0, length: symbolsString.length))
+        symbolsString.setAttributes([NSAttributedString.Key.font:fontSuper!,NSAttributedString.Key.baselineOffset:8], range: NSRange(location: 0, length: symbolsString.length))
         
         returnString.append(symbolsString)
         

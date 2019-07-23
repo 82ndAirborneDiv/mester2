@@ -44,7 +44,7 @@ class ConditionsContent {
         if conditionDisplayed.parentCondition != nil {
             let parentCondition = conditions[conditionDisplayed.parentCondition!]
             let childConditions = parentCondition.childConditions
-            var nextConditionIndex = (childConditions?.index(of: conditionDisplayed)!)! + 1
+            var nextConditionIndex = (childConditions?.firstIndex(of: conditionDisplayed)!)! + 1
             
             if nextConditionIndex > (childConditions?.count)! - 1 {
                 nextConditionIndex = conditionDisplayed.parentCondition! + 1
@@ -60,7 +60,7 @@ class ConditionsContent {
                 nextCondition = childConditions?[nextConditionIndex]
             }
         } else {
-            var nextConditionIndex = conditions.index(of: conditionDisplayed)! + 1
+            var nextConditionIndex = conditions.firstIndex(of: conditionDisplayed)! + 1
             if nextConditionIndex > conditions.count {
                 nextConditionIndex = 0
             }
@@ -79,7 +79,7 @@ class ConditionsContent {
         if conditionDisplayed.parentCondition != nil {
             let parentCondition = conditions[conditionDisplayed.parentCondition!]
             let childConditions = parentCondition.childConditions
-            var prevConditionIndex = (childConditions?.index(of: conditionDisplayed)!)! - 1
+            var prevConditionIndex = (childConditions?.firstIndex(of: conditionDisplayed)!)! - 1
             
             if prevConditionIndex < 0 {
                 prevConditionIndex = conditionDisplayed.parentCondition! - 1
@@ -95,7 +95,7 @@ class ConditionsContent {
                 prevCondition = childConditions?[prevConditionIndex]
             }
         } else {
-            var prevConditionIndex = conditions.index(of: conditionDisplayed)! - 1
+            var prevConditionIndex = conditions.firstIndex(of: conditionDisplayed)! - 1
             if prevConditionIndex < 0 {
                 prevConditionIndex = conditions.count - 1
             }
